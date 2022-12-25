@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import ActivityWorker from "./activityWorker/activityWorker";
+import ActivityManager from "./activityManger/activityManager";
+import SetActivityManagered from "./activityManger/setActivityManagered";
+import SetActivityWorker from "./activityWorker/setActivityWorker";
+import { Route, Routes } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+function App(){
+    return(
+        <Routes>
+            <Route path="/" element={<ActivityWorker/>} />   
+            <Route path="worker">
+                <Route path=":userName" element={<ActivityWorker/>} />
+            </Route>
+            <Route path="setWorkerActivity">
+                <Route path=":userName" element={<SetActivityWorker/>}/>
+            </Route>
+            <Route path="/manager" element={<ActivityManager/>}/>
+            <Route path="setActivity">
+                <Route path=":userName" element={<SetActivityManagered/>}/>
+            </Route>
+        </Routes>
+    )
 }
 
-export default App;
+export default App
