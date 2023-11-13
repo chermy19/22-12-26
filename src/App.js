@@ -1,4 +1,4 @@
-import React from "react";
+
 import ActivityWorker from "./activityWorker/activityWorker";
 import ActivityManager from "./activityManger/activityManager";
 import SetActivityManagered from "./activityManger/setActivityManagered";
